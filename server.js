@@ -51,7 +51,7 @@ console.log('This is after the read call');
 //get all
 app.get('/api/all', (req, res) => {
 
-  queryStr = `SELECT * FROM FBT70749.BASICS FETCH FIRST 50 ROWS ONLY`;
+  queryStr = `SELECT * FROM MOVIE.BASICS FETCH FIRST 50 ROWS ONLY`;
 
   ibmdb.open(connStr, function (err, conn) {
     if (err) return console.log(err);
@@ -72,7 +72,7 @@ app.get('/api/all', (req, res) => {
 //get all by title
 app.get('/api/all/:title', (req, res) => {
 
-  queryStr = `SELECT * FROM FBT70749.BASICS WHERE PRIMARYTITLE LIKE '${req.params.title}%'`;
+  queryStr = `SELECT * FROM MOVIE.BASICS WHERE PRIMARYTITLE LIKE '${req.params.title}%'`;
 
   ibmdb.open(connStr, function (err, conn) {
     if (err) return console.log(err);
